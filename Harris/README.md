@@ -39,11 +39,19 @@ GaussianBlur(dxdy, dxdy, Size(5, 5), 4/6, 4/6);
 
 La ricerca dei corner avviene mediante il calcolo dei valori di *cornerness* per tutta l'immagine. Essa consiste nel calcolo della seguente equazione.
 
-<img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white&space;R&space;=&space;\det(M)&space;-&space;\alpha&space;\cdot&space;\mathrm{trace}(M)^2" title="\bg_white R = \det(M) - \alpha \cdot \mathrm{trace}(M)^2" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.image?\large&space;\color{White}R=\det(M)-\alpha\cdot\mathrm{trace}(M)^2">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.image?\large&space;R=\det(M)-\alpha\cdot\mathrm{trace}(M)^2">
+  <img src="https://latex.codecogs.com/svg.image?\large&space;R=\det(M)-\alpha\cdot\mathrm{trace}(M)^2">
+</picture>
 
 Dove α è una costante fissata generalmente pari a 0,04 e *M* è una matrice 2x2 dove ogni componente è costituita da un gradiente:
 
-<img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white&space;M&space;=&space;\sum_{x,y}&space;w(x,y)\begin{bmatrix}\nabla_x^2(x,y)&space;&&space;\nabla_x(x,y)&space;\nabla_y(x,y)\\\nabla_x(x,y)&space;\nabla_y(x,y)&space;&&space;\nabla_y^2(x,y)&space;\\\end{bmatrix}" title="\bg_white M = \sum_{x,y} w(x,y)\begin{bmatrix}\nabla_x^2(x,y) & \nabla_x(x,y) \nabla_y(x,y)\\\nabla_x(x,y) \nabla_y(x,y) & \nabla_y^2(x,y) \\\end{bmatrix}" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.image?\large&space;\color{White}M=\sum_{x%2Cy}w(x%2Cy)\begin{bmatrix}\nabla_x^2(x%2Cy)&\nabla_x(x%2Cy)\nabla_y(x%2Cy)\\\nabla_x(x%2Cy)\nabla_y(x%2Cy)&\nabla_y^2(x%2Cy)\\\end{bmatrix}">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.image?\large&space;M=\sum_{x%2Cy}w(x%2Cy)\begin{bmatrix}\nabla_x^2(x%2Cy)&\nabla_x(x%2Cy)\nabla_y(x%2Cy)\\\nabla_x(x%2Cy)\nabla_y(x%2Cy)&\nabla_y^2(x%2Cy)\\\end{bmatrix}">
+  <img src="https://latex.codecogs.com/svg.image?\large&space;M=\sum_{x%2Cy}w(x%2Cy)\begin{bmatrix}\nabla_x^2(x%2Cy)&\nabla_x(x%2Cy)\nabla_y(x%2Cy)\\\nabla_x(x%2Cy)\nabla_y(x%2Cy)&\nabla_y^2(x%2Cy)\\\end{bmatrix}">
+</picture>
 
 ```c++
 Mat det, dx2dy2, dxdy2;
