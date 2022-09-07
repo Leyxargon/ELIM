@@ -37,7 +37,11 @@ Sobel(gauss, dy, CV_32F, 0, 1);
 
 Da queste due immagini ottenute si può trovare quindi il gradiente degli edge con le sue direzioni per ogni pixel calcolando prima le derivate al quadrato delle due immagini, per poi calcolarlo effettivamente.
 
-![\bg_white M(x,y) = \sqrt{g^2_x + g^2_y}](https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white&space;M(x,y)&space;=&space;\sqrt{g^2_x&space;&plus;&space;g^2_y})
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.image?\large&space;\color{White}M(x%2Cy)=\sqrt{g_x^2&plus;g_y^2}">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.image?\large&space;M(x%2Cy)=\sqrt{g_x^2&plus;g_y^2}">
+  <img src="https://latex.codecogs.com/svg.image?\large&space;M(x%2Cy)=\sqrt{g_x^2&plus;g_y^2}">
+</picture>
 
 ```c++
 Mat dx2, dy2, mag;
@@ -66,7 +70,11 @@ Si considera un numero finito di orientamenti in una regione 3x3: si ottengono 4
 
 Per il calcolo è necessario ottenere una matrice degli angoli di rotazione, ottenibile mediante la seguente formula.
 
-<img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white&space;\alpha(x,y)&space;=&space;\tan^{-1}(\frac{g_y}{g_x})" title="\bg_white \alpha(x,y) = \tan^{-1}(\frac{g_y}{g_x})" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.image?\large&space;\color{White}\alpha(x%2Cy)=\tan^{-1}\left(\frac{g_y}{g_x}\right)">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.image?\large&space;\alpha(x%2Cy)=\tan^{-1}\left(\frac{g_y}{g_x}\right)">
+  <img src="https://latex.codecogs.com/svg.image?\large&space;\alpha(x%2Cy)=\tan^{-1}\left(\frac{g_y}{g_x}\right)">
+</picture>
 
 ```c++
 // genera matrice degli angoli di rotazione 
